@@ -1,53 +1,63 @@
+/* Animated gradient background */
 body {
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;         /* Allow page to grow */
   font-family: sans-serif;
   color: white;
-  background: linear-gradient(to bottom, #027a9c, #008000);
-  background-attachment: fixed;
-  backgroung-size: cover;
-  background-repeat: no-repeat;
-  
-  justify-content: center;
-  align-items: center;
+
+  background: linear-gradient(180deg, #027a9c, #008000, #004d26);
+  background-size: 400% 400%;  /* needed for smooth animation */
+  animation: moveGradient 15s ease infinite;
+
+  display: block;             /* remove flex—prevents cutting */
 }
 
-/* Applying Gradietn */
+/* Smooth gradient animation */
+@keyframes moveGradient {
+  0% { background-position: 50% 0%; }
+  50% { background-position: 50% 100%; }
+  100% { background-position: 50% 0%; }
+}
+
+/* Your frosted-glass box */
 .gradient-box {
   width: 100%;
   max-width: 1100px;
   padding: 40px;
   box-sizing: border-box;
+
   background: rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   backdrop-filter: blur(2px);
-  min-height: 200vh;
-}
-  
-head {  
-  color: white;
-  text-align: center;
+
+  min-height: 200vh;   /* still scrollable */
+  margin: 0 auto;      /* center horizontally */
 }
 
-h1, h2, h3, h4, h5, h6{
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
   color: white;
   font-family: sans-serif;
 }
 
+/* Images */
 img {
   border-color: black;
   text-align: center;
 }
 
-a:hover{
-    color:#000000;
+/* Links */
+a:hover {
+  color: #000000;
 }
 
+/* Text stroke */
 .stroked-text {
-    -webkit-text-stroke: 1px black;
-    text-stroke: 1px black;
+  -webkit-text-stroke: 1px black;
+  text-stroke: 1px black;
 }
 
+/* Buttons */
 .button {
   background-color: #000000;
   color: white;
@@ -58,14 +68,12 @@ a:hover{
   cursor: pointer;
   transition: 0.3s;
   display: inline-block;
-  background-color: #000000;  
 }
-
 
 .button:hover {
   background-color: #FFFFFF;
   transform: scale(1.1);
-  border-color: #FFFFFF;
+  color: black;
 }
 
 .button-container {
